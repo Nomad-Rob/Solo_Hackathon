@@ -1,0 +1,131 @@
+/* style.css */
+#chat-area {
+  height: 400px;
+  overflow-y: auto;
+}
+
+#frog-image {
+  max-height: 200px;
+}
+
+.chat-message {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.user-message {
+  background-color: #c6dcf8 ;
+  align-self: flex-end;
+}
+
+.frog-message {
+  background-color: #dcf8c6;
+  align-self: flex-start;
+}
+
+.message-input {
+  padding: 0 15px 0 15px;
+}
+
+
+@keyframes flyDance {
+  0%, 100% {
+    transform: translate(0, -10px) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(10px, -20px) rotate(20deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-10px, -30px) rotate(-20deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(0, -40px) rotate(20deg);
+    opacity: 0.9;
+  }
+}
+
+#send-message {
+  position: relative;
+}
+
+#send-message::after {
+  content: '';
+  position: absolute;
+  top: -50px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  background-image: url('./assets/fly.png'); /* Path to your fly image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: flyDance 3s infinite ease-in-out;
+}
+
+/* Define the hop animation */
+@keyframes hop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Add the hop class to the image element */
+.hop {
+  animation: hop 0.5s ease-in-out;
+}
+
+#frog-stampede-container {
+  position: fixed;
+  top: 0;
+  left: 100%; /* Start outside of the screen */
+  width: 100%;
+  overflow: hidden;
+  z-index: -1; /* Make sure it's behind other elements */
+}
+
+.frog-stampede {
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the container */
+  animation: stampede 5s linear infinite;
+}
+
+@keyframes stampede {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-200%); /* Move to the left to ensure it's out of screen */
+  }
+}
+
+.frog-stampede img {
+  width: 100px; /* Adjust the size of the frogs */
+  margin-right: 10px; /* Space between frogs */
+}
+
+#frogs-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #28a745;
+  text-shadow: 2px 2px 4px #000;
+  opacity: 0;
+  animation: fadeInOut 3s linear;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
