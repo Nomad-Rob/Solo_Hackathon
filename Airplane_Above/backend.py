@@ -17,12 +17,19 @@ def nearest_aircraft():
 
     try:
         states = api.get_states(bbox=bbox)
-        aircrafts = [{'icao24': state.icao24, 'callsign': state.callsign, 'country': state.origin_country,
-                      'longitude': state.longitude, 'latitude': state.latitude, 'altitude': state.baro_altitude}
+        aircrafts = [{'icao24': state.icao24,
+                      'callsign': state.callsign,
+                      'country': state.origin_country,
+                      'longitude': state.longitude,
+                      'latitude': state.latitude,
+                      'altitude': state.baro_altitude,
+                      'squawk': state.squawk,
+                      'velocity': state.velocity,
+                      'vertical_rate': state.vertical_rate,}
                      for state in states.states]
         return jsonify(aircrafts)
     except ReadTimeout:
         return jsonify({'error': 'The request to OpenSky timed out.'}), 504
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
