@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Nearest Aircraft</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/script.js"></script>
 </head>
 <body>
-    <h1>Nearest Aircraft to My Location</h1>
-    <button onclick="fetchNearestAircraft()">Find Nearest Aircraft</button>
-    <div id="aircraftList"></div>
+    <div class="container mt-4">
+        <div class="card">
+            <img src="path_to_your_image.jpg" class="card-img-top" alt="Aircraft Image">
+            <div class="card-body">
+                <h1 class="card-title">Nearest Aircraft to My Location</h1>
+                <button class="btn btn-primary" onclick="fetchNearestAircraft()">Find Nearest Aircraft</button>
+                <div id="aircraftList" class="container mt-4"></div> <!-- Container for aircraft data -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery scripts (make sure to include them before closing </body>) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add Google Maps JavaScript API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap"></script>
+    <!-- Include the map.js script -->
+    <script src="map.js"></script>
 </body>
 </html>
