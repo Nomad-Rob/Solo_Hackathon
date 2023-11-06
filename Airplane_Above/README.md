@@ -1,3 +1,6 @@
+![Alt text](https://raw.githubusercontent.com/Nomad-Rob/Solo_Hackathon/main/Airplane_Above/aircraft.png)
+Work in progress
+
 THis will use an ads-b api to get the location of airplanes and then use the google maps api to display the location of the airplanes on a map.
 It will display a picture and specs of the closest airplane to the user.
 
